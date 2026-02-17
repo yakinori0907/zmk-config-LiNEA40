@@ -21,7 +21,7 @@ jobs:
         # ここで自分のキーボードのパスを指定します
         run: |
           keymap parse -z config/LiNEA40.keymap > LiNEA40.yaml
-          keymap -c keymap_config.yaml draw LiNEA40.yaml > LiNEA40.svg
+          keymap draw LiNEA40.yaml > LiNEA40.svg
 
       - name: Commit and push
         run: |
