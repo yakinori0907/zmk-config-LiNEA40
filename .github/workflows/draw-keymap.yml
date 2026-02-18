@@ -19,14 +19,28 @@ jobs:
 
       - name: Draw keymap
         run: |
-          # 1. まずキーマップデータを生成
+          # 1. キーマップデータを生成
           keymap parse -z config/LiNEA40.keymap > LiNEA40.yaml
 
-          # 2. 生成されたデータ内の「LiNEA40」という不明なレイアウト指定を、
-          #    「4行10列のOrtho配列」という定義に強制的に書き換えます
-          sed -i 's/zmk_keyboard: .*/ortho_layout: {rows: 4, columns: 10}/' LiNEA40.yaml
+          # 2. Pythonを使って安全にレイアウト情報を注入
+          # (sedの代わりにこれを使います)
+          python3 -c "
+          import yaml
+          from pathlib import Path
+          
+          # YAMLファイルを読み込む
+          yaml_file = Path('LiNEA40.yaml')
+          data = yaml.safe_load(yaml_file.read_text())
+          
+          # レイアウト定義を追加 (4行10列のOrtho配列)
+          # もし12列なら columns: 12 に変更してください
+          data['layout'] = {'ortho_layout': {'rows': 4, 'columns': 10}}
+          
+          # 上書き保存
+          yaml_file.write_text(yaml.dump(data))
+          "
 
-          # 3. 書き換えたデータを使って画像生成（設定ファイル指定 -c は削除）
+          # 3. 画像生成
           keymap draw LiNEA40.yaml > LiNEA40.svg
 
       - name: Commit and push
