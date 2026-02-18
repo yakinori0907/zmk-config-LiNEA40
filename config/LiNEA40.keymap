@@ -129,7 +129,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_CR_SCR";
             #binding-cells = <0>;
-            bindings = <&kp COLON>, <&mt RALT SEMI>;
+            bindings = <&kp JP_COLON>, <&mt RALT SEMI>;
         };
 
         TD_US_PIPE: TD_US_PIPE {
