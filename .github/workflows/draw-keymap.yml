@@ -22,7 +22,7 @@ jobs:
           # 1. キーマップデータを生成
           keymap parse -z config/LiNEA40.keymap > LiNEA40.yaml
 
-          # 2. Pythonで「ちょうど41キー」のレイアウトを生成して注入
+          # 2. Pythonで「qmk_info_json」形式を使って41キーを定義
           python3 -c "
           import yaml
           from pathlib import Path
@@ -30,18 +30,24 @@ jobs:
           yaml_file = Path('LiNEA40.yaml')
           data = yaml.safe_load(yaml_file.read_text())
           
-          # 【重要】4x10の40キーを作成し、最後に1つだけキーを手動追加して41個にします
+          # 4行x10列の座標を作成
+          layout_keys = [{'x': c, 'y': r} for r in range(4) for c in range(10)]
           
-          # 1. まず40個のキー座標を作成 (4行 x 10列)
-          keys = [{'x': c, 'y': r} for r in range(4) for c in range(10)]
+          # 41個目のキーを追加 (右側に配置)
+          layout_keys.append({'x': 10.5, 'y': 1.5})
           
-          # 2. 41個目のキーを追加 (座標は右の方に適当に配置: x=10.5, y=1.5)
-          keys.append({'x': 10.5, 'y': 1.5, 'w': 1, 'h': 1})
+          # 【重要】ツールが納得する形式 (qmk_info_json) でラップする
+          data['layout'] = {
+              'qmk_info_json': {
+                  'layout_name': 'LiNEA40_Custom',
+                  'layouts': {
+                      'LiNEA40_Custom': {
+                          'layout': layout_keys
+                      }
+                  }
+              }
+          }
           
-          # 3. 作成したキーリストを layout 定義として保存
-          data['layout'] = {'keys': keys}
-          
-          # 上書き保存
           yaml_file.write_text(yaml.dump(data))
           "
 
