@@ -19,28 +19,24 @@ jobs:
 
       - name: Draw keymap
         run: |
-          # 1. キーマップデータを生成
           keymap parse -z config/LiNEA40.keymap > LiNEA40.yaml
 
-          # 2. Pythonを使って安全にレイアウト情報を注入
-          # (sedの代わりにこれを使います)
+          # Pythonでレイアウト定義を書き換え
+          # 41キーに対応するため、列数を「11」に増やして余裕を持たせます (4x11=44キー)
           python3 -c "
           import yaml
           from pathlib import Path
           
-          # YAMLファイルを読み込む
           yaml_file = Path('LiNEA40.yaml')
           data = yaml.safe_load(yaml_file.read_text())
           
-          # レイアウト定義を追加 (4行10列のOrtho配列)
-          # もし12列なら columns: 12 に変更してください
-          data['layout'] = {'ortho_layout': {'rows': 4, 'columns': 10}}
+          # 物理レイアウト定義: 4行 x 11列 (44キー) に設定
+          # 余った部分は空白になりますが、エラーは出なくなります
+          data['layout'] = {'ortho_layout': {'rows': 4, 'columns': 11}}
           
-          # 上書き保存
           yaml_file.write_text(yaml.dump(data))
           "
 
-          # 3. 画像生成
           keymap draw LiNEA40.yaml > LiNEA40.svg
 
       - name: Commit and push
