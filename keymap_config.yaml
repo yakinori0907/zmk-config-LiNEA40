@@ -1,0 +1,7 @@
+physical_layouts:
+  LiNEA40:
+    ortho_layout:
+      split: false
+      rows: 4
+      columns: 10  # キーが横に12個ある場合はここを 12 にしてください
+      thumbs: 0    # 親指キーが特殊な配置でなければ 0 でOK
