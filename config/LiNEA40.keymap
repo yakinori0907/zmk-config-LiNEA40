@@ -58,6 +58,17 @@
     time-to-max-speed-ms = <100>;
     acceleration-exponent = <0>;
 };
+
+&mt {
+    tapping-term-ms = <120>;
+    quick-tap-ms = <100>;
+};
+
+&lt {
+    tapping-term-ms = <120>;
+    quick-tap-ms = <100>;
+};
+
 / {
     behaviors {
         mt: mod_tap {
@@ -66,10 +77,12 @@
             flavor = "hold-preferred";
             tapping-term-ms = <120>;
             bindings = <&kp>, <&kp>;
+
             display-name = "Mod-Tap";
         };
     };
 };
+
 / {
     behaviors {
         lt: layer_tap {
@@ -78,6 +91,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <120>;
             bindings = <&mo>, <&kp>;
+
             display-name = "Layer-Tap";
         };
     };
@@ -107,7 +121,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,
+            //スクロール方向を逆転,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -148,30 +162,17 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
         };
-
-        TD_CR_SCR: TD_CR_SCR {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_CR_SCR";
-            #binding-cells = <0>;
-            bindings = <&kp JP_COLON>, <&mt RALT SEMI>;
-        };
-
-        TD_US_PIPE: TD_US_PIPE {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_US_PIPE";
-            #binding-cells = <0>;
-            bindings = <&kp JP_UNDERSCORE>, <&kp JP_PIPE>;
-        };    };
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp Q         &kp W         &kp E             &kp R    &kp T                                         &kp Y       &kp U  &kp I       &kp O          &lt 5 P
-&mt LCTRL A   &kp S         &kp D             &kp F    &kp G                                         &kp H       &kp J  &kp K       &kp L          &mt RCTRL MINUS
-&mt LSHFT Z   &kp X         &kp C             &kp V    &kp B                                         &kp N       &kp M  &kp COMMA   &kp DOT        &mt RSHFT SLASH
-&kp LEFT_WIN  &kp LEFT_ALT  &lt 4 JP_EISU     &kp INS  &lt 3 JP_KANA  &lt 2 SPACE    &lt 5 ENTER     &TD_BS_DEL  &TD_CR_SCR         &kp JP_YEN     &TD_US_PIPE
+&kp Q         &kp W         &kp E          &kp R    &kp T                                      &kp Y       &kp U  &kp I       &kp O       &lt 5 P
+&mt LCTRL A   &kp S         &kp D          &kp F    &kp G                                      &kp H       &kp J  &kp K       &kp L       &mt RCTRL MINUS
+&mt LSHFT Z   &kp X         &kp C          &kp V    &kp B                                      &kp N       &kp M  &kp COMMA   &kp DOT     &mt RSHFT SLASH
+&kp LEFT_WIN  &kp LEFT_ALT  &lt 4 JP_EISU  &kp INS  &lt 3 JP_KANA  &lt 2 SPACE    &lt 5 ENTER  &TD_BS_DEL         &TD_CR_SCR  &kp JP_YEN  &TD_US_PIPE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
