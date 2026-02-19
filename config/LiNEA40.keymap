@@ -58,7 +58,12 @@
     time-to-max-speed-ms = <100>;
     acceleration-exponent = <0>;
 };
-
+&mt {
+    tapping-term-ms = <150>; // This is the value already set by default
+};
+&ml {
+    tapping-term-ms = <150>; // This is the value already set by default
+};
 / {
     input_processors {
         zip_wheel_scaler: zip_wheel_scaler {
