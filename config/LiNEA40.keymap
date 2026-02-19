@@ -33,6 +33,12 @@
     acceleration-exponent = <0>;
 };
 
+&mt {
+    tapping-term-ms = <150>; // This is the value already set by default
+};
+&lt {
+    tapping-term-ms = <150>; // This is the value already set by default
+};
 / {
     input_processors {
         zip_wheel_scaler: zip_wheel_scaler {
