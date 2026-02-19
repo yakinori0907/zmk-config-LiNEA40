@@ -61,7 +61,7 @@
 &mt {
     tapping-term-ms = <150>; // This is the value already set by default
 };
-&ml {
+&lt {
     tapping-term-ms = <150>; // This is the value already set by default
 };
 / {
