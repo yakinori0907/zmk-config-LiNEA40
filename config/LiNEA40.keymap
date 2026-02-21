@@ -155,24 +155,24 @@
         // layer_id : 0  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         default_layer {
             bindings = <
-				&kp Q		  &kp W			&kp E		  &kp R	   &kp T									&kp Y		 &kp U	&kp I		&kp O		&kp P
-				&mt LCTRL A	  &kp S			&kp D		  &kp F	   &kp G									&kp H		 &kp J	&kp K		&kp L		&mt RCTRL MINUS
-				&mt LSHFT Z	  &kp X			&kp C		  &kp V	   &kp B									&kp N		 &kp M	&kp COMMA	&kp DOT		&mt RSHFT SLASH
-				&kp LEFT_WIN  &kp LEFT_ALT	&lt 4 DELETE  &kp INS  &lt 2 SPACE	&TD_HEN_MHEN	&TD_BS_DEL	&lt 5 ENTER			&TD_CR_SCR	&kp JP_YEN	&TD_US_PIPE
+				&kp Q			&kp W			&kp E			&kp R	   	&kp T												&kp Y		 		&kp U			&kp I			&kp O			&kp P
+				&mt LCTRL A		&kp S			&kp D			&kp F	   	&kp G												&kp H		 		&kp J			&kp K			&kp L			&mt RCTRL MINUS
+				&mt LSHFT Z		&kp X			&kp C			&kp V	   	&kp B												&kp N		 		&kp M			&kp COMMA		&kp DOT			&mt RSHFT SLASH
+				&kp LEFT_WIN	&kp LEFT_ALT	&lt 4 DELETE	&none		&lt 2 SPACE		&TD_HEN_MHEN		&kp BACKSPACE	&lt 5 ENTER							&TD_CR_SCR		&kp JP_YEN		&TD_US_PIPE
             >;
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
         // layer_id : 1  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         symbol_layer {
-            bindings = <
-                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
+            bindings = <   
+                &kp EXCLAMATION	&kp JP_DQUOTE	&kp HASH		&kp DOLLAR     	&kp PERCENT                     				&kp JP_AMPERSAND  	&kp JP_QUOTE	&kp JP_LPAREN	&kp JP_RPAREN		&kp JP_AT
+                &none  			&none  			&none  			&none  			&none                  							&none  				&none  			&kp JP_LBRACKET &kp JP_RBRACKET		&mt RCTRL JP_CARET
+				&none  			&none  			&none  			&none  			&none                  							&none  				&none  			&kp JP_LBRACE	&JP_RBRACE			&mt RSHFT JP_TILDE
+                &kp LEFT_WIN  	&kp LEFT_ALT	&kp DELETE  	&none  			&kp SPACE  	&TD_HEN_MHEN		&kp BACKSPACE	&kp ENTER         					&none  			&none				&kp JP_BACKQUOTE
             >;
         };
-
+z
         // layer_id : 2  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         MARK {
             bindings = <
