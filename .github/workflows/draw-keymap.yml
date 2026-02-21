@@ -6,7 +6,7 @@ on:
       - "config/*.keymap"
       - "config/*.json"
       - "config/keymap_drawer.config.yaml"
-      - "config/lboards/shields/LiNEA40/*.dtsi
+      - "config/lboards/shields/LiNEA40/*.dtsi"
 
 jobs:
   draw:
