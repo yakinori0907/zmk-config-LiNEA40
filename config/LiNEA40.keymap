@@ -164,12 +164,12 @@
         };
 
         // layer_id : 1  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        MOUSE {
+        symbol_layer {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans                    &trans  &trans              &trans               &trans  &trans
-                &trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB1            &mkp MB2             &trans  &mo 5
-                &trans  &trans  &trans  &trans  &trans                    &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                      &trans               &trans  &trans
+                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+                &none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
             >;
         };
 
