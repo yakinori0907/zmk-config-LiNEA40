@@ -3,7 +3,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-#include <layout_shift.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -116,22 +115,6 @@
     };
 
     behaviors {
-        // Keep the original key_press behavior for ZMK core components
-
-        original_key_press: original_key_press {
-            compatible = "zmk,behavior-key-press";
-            #binding-cells = <1>;
-            label = "KEY_PRESS";
-        };
-
-        // Override the existing &kp behavior to use our custom implementation
-
-        kp: key_press {
-            compatible = "zmk,behavior-layout-shift-key-press";
-            #binding-cells = <1>;
-            label = "LAYOUT_SHIFT_KEY_PRESS";
-        };
-
         re_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
@@ -171,7 +154,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_HEN_MHEN";
             #binding-cells = <0>;
-            bindings = <&kp INT_HENKAN>, <&kp INT_MUHENKAN>;
+            bindings = <&kp JP_KANA>, <&kp JP_EISU>;
         };
     };
 
@@ -183,7 +166,7 @@
 &kp Q         &kp W         &kp E          &kp R    &kp T                                    &kp Y        &kp U  &kp I       &kp O       &kp P
 &mt LCTRL A   &kp S         &kp D          &kp F    &kp G                                    &kp H        &kp J  &kp K       &kp L       &mt RCTRL MINUS
 &mt LSHFT Z   &kp X         &kp C          &kp V    &kp B                                    &kp N        &kp M  &kp COMMA   &kp DOT     &mt RSHFT SLASH
-&kp LEFT_WIN  &kp LEFT_ALT  &lt 4 JP_EISU  &kp INS  &lt 2 SPACE  &TD_HEN_MHEN    &TD_BS_DEL  &lt 5 ENTER         &TD_CR_SCR  &kp JP_YEN  &kp BSLH
+&kp LEFT_WIN  &kp LEFT_ALT  &lt 4 JP_EISU  &kp INS  &lt 2 SPACE  &TD_HEN_MHEN    &TD_BS_DEL  &lt 5 ENTER         &TD_CR_SCR  &kp JP_YEN  &TD_US_PIPE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
