@@ -94,7 +94,7 @@
         layers = <8>;    // mouse_scroll
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -248,28 +248,28 @@
 
         mouse {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans  &trans  &trans
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
             >;
         };
 
         mouse_scroll {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans  &trans  &trans
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
             >;
         };
 
         mouse_snipe {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans  &trans  &trans
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
             >;
         };
     };
