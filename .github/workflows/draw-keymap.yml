@@ -1,0 +1,37 @@
+name: Draw ZMK keymaps
+on:
+  workflow_dispatch: # 手動実行用
+  push:
+    paths:
+      - "config/*.keymap"
+      - "config/*.json"
+      - "config/keymap_drawer.config.yaml"
+      - "config/lboards/shields/LiNEA40/*.dtsi
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 画像をリポジトリに書き込むために必要
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install keymap-drawer
+        run: pip install keymap-drawer
+
+      - name: Draw keymap
+        run: |
+          # LINEA40のキーマップファイルを指定
+          # 出力先を svg/linea40.svg に設定
+          mkdir -p svg
+          keymap parse -z config/LiNEA40.keymap > config/LiNEA40.yaml
+          keymap draw -d config/lboards/shields/LiNEA40/LiNEA40.dtsi config/LiNEA40.yaml > svg/LiNEA40.svg
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add svg/*.svg
+          git commit -m "Update keymap drawing" || exit 0
+          git push
