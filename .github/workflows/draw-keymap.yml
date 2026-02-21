@@ -6,7 +6,7 @@ on:
       - "config/*.keymap"
       - "config/*.json"
       - "config/keymap_drawer.config.yaml"
-      - "config/lboards/shields/LiNEA40/*.dtsi"
+      - "config/boards/shields/LiNEA40/*.dtsi"
 
 jobs:
   draw:
@@ -26,7 +26,7 @@ jobs:
           # 出力先を svg/linea40.svg に設定
           mkdir -p svg
           keymap parse -z config/LiNEA40.keymap > config/LiNEA40.yaml
-          keymap draw -d config/lboards/shields/LiNEA40/LiNEA40.dtsi config/LiNEA40.yaml > svg/LiNEA40.svg
+          keymap draw -d config/boards/shields/LiNEA40/LiNEA40.dtsi config/LiNEA40.yaml > svg/LiNEA40.svg
 
       - name: Commit and push
         run: |
