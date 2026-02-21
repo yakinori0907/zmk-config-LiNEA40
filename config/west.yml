@@ -2,8 +2,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: kot149
-      url-base: https://github.com/kot149
     - name: inorichi
       url-base: https://github.com/inorichi
     - name: keyfreaks
@@ -21,8 +19,5 @@ manifest:
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: v0.3-branch
-    - name: zmk-layout-shift
-      remote: kot149
-      revision: v1
   self:
     path: config
