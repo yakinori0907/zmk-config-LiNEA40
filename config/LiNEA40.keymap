@@ -230,10 +230,10 @@
         // layer_id : 7  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         mouse {
             bindings = <
-                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
+                &trans  &trans  &trans  &trans  &trans                    &trans  &trans              &trans               &trans  &trans
+                &trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB1            &mkp MB2             &trans  &mo 8
+                &trans  &trans  &trans  &trans  &trans                    &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans  &mo 9
+                &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                      &trans               &trans  &trans
             >;
         };
 
