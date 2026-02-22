@@ -121,19 +121,19 @@
         };
 
         cmb_BRACKET {
-            bindings = <&LR_BRACE>;
+            bindings = <&LR_BRACKET>;
             key-positions = <27 28>;
             layers = <0>;
         };
 
         cmb_DQUOTE {
-            bindings = <&LR_BRACE>;
+            bindings = <&LR_DQUOTE>;
             key-positions = <38 39>;
             layers = <0>;
         };
 
         cmb_QUOTE {
-            bindings = <&LR_BRACE>;
+            bindings = <&LR_QUOTE>;
             key-positions = <40 39>;
             layers = <0>;
         };
@@ -173,20 +173,38 @@
         LR_PAREN: LR_PAREN {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp LC(KP_LEFT_PARENTHESIS) &kp RIGHT_PARENTHESIS &kp LEFT_ARROW>,
-                <&macro_press>;
-
+            bindings = <&kp JP_LPAREN &kp JP_RPAREN &kp LEFT_ARROW>;
             label = "LR_PAREN";
         };
 
         LR_BRACE: LR_BRACE {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp A &kp B &kp LEFT_ARROW>;
+            bindings = <&kp JP_LBRACE &kp JP_RBRACE &kp LEFT_ARROW>;
             label = "LR_BRACE";
         };
-    };
+
+        LR_BRACKET: LR_BRACKET {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp JP_LBRACKET &kp JP_RBRACKET &kp LEFT_ARROW>;
+            label = "LR_BRACKET";
+        };
+
+        LR_DQUOTE: LR_DQUOTE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp JP_DQUOTE &kp JP_DQUOTE &kp LEFT_ARROW>;
+            label = "LR_DQUOTE";
+        };
+
+        LR_QUOTE: LR_QUOTE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp JP_QUOTE &kp JP_QUOTE &kp LEFT_ARROW>;
+            label = "LR_QUOTE";
+        };
+};
 
     keymap {
         compatible = "zmk,keymap";
