@@ -158,10 +158,10 @@
 
         default_layer {
             bindings = <
-&kp Q         &kp W         &kp E         &kp R  &kp T                                       &kp Y        &kp U  &kp I       &kp O       &kp P
-&mt LCTRL A   &kp S         &kp D         &kp F  &kp G                                       &kp H        &kp J  &kp K       &kp L       &mt RCTRL MINUS
-&mt LSHFT Z   &kp X         &kp C         &kp V  &kp B                                       &kp N        &kp M  &kp COMMA   &kp DOT     &mt RSHFT SLASH
-&kp LEFT_WIN  &kp LEFT_ALT  &lt 1 DELETE  &none  &lt 2 SPACE  &TD_HEN_MHEN    &lt 4 BACKSPACE  &lt 5 ENTER         &TD_CR_SCR  &kp JP_YEN  &TD_US_PIPE
+&kp Q         &kp W         &kp E         &kp R  &kp T                                               &kp Y        &kp U  &kp I       &kp O       &kp P
+&mt LCTRL A   &kp S         &kp D         &kp F  &kp G                                               &kp H        &kp J  &kp K       &kp L       &mt RCTRL MINUS
+&mt LSHFT Z   &kp X         &kp C         &kp V  &kp B                                               &kp N        &kp M  &kp COMMA   &kp DOT     &mt RSHFT SLASH
+&kp LEFT_WIN  &kp LEFT_ALT  &lt 1 DELETE  &none  &lt 2 SPACE        &TD_HEN_MHEN    &lt 4 BACKSPACE  &lt 5 ENTER         &TD_CR_SCR  &kp JP_YEN  &TD_US_PIPE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -193,18 +193,18 @@
 
         // layer_id : 3  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        CURSOR {
+        number_layer {
             bindings = <
-&trans    &kp LC(LG(LEFT_ARROW))  &kp UP_ARROW  &kp LC(LG(RIGHT_ARROW))  &trans                       &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
-&trans    &kp LEFT_ARROW          &kp DOWN      &kp RIGHT_ARROW          &trans                       &kp KP_SLASH     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
-&kp HOME  &kp PAGE_DOWN           &kp END       &kp PAGE_UP              &trans                       &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
-&trans    &trans                  &trans        &trans                   &trans  &trans    &kp ENTER  &kp NUMBER_0                   &kp DOT       &kp ENTER     &kp QUESTION
+&trans    &trans &trans  &trans  &trans                       &kp NUMBER_7     &kp NUMBER_8  &kp NUMBER_9  &kp JP_PLUS       &kp JP_EQUAL
+&trans    &trans          &trans      &trans          &trans                       &kp NUMBER_4     &kp NUMBER_5  &kp NUMBER_6  &kp MINUS         &kp JP_YEN
+&trans  &trans           &trans      &trans              &trans                       &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp JP_ASTERISK   &kp JP_COLON
+&trans    &trans                  &trans        &trans                   &trans  &trans    &kp ENTER  &kp NUMBER_0                   &kp DOT       &kp SLASH         &kp COMMA
             >;
         };
 
         // layer_id : 4  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        FUNCTION {
+        function_layer {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4   &kp F5                     &trans      &trans  &kp LA(PRINTSCREEN)  &trans  &kp LC(LA(DELETE))
 &kp F6  &kp F7  &kp F8  &kp F9   &kp F10                    &trans      &trans  &kp LS(LG(S))        &trans  &kp LC(LS(ESCAPE))
@@ -217,12 +217,12 @@
 
         // layer_id : 5  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        SCROLL {
+        bluetooth_layer {
             bindings = <
-&trans    &kp LC(LG(LEFT_ARROW))  &kp UP_ARROW  &kp LC(LG(RIGHT_ARROW))  &trans                    &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
-&trans    &kp LEFT_ARROW          &kp DOWN      &kp RIGHT_ARROW          &trans                    &kp KP_SLASH     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
-&kp HOME  &kp PAGE_DOWN           &kp END       &kp PAGE_UP              &trans                    &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
-&trans    &trans                  &trans        &trans                   &trans  &trans    &trans  &kp NUMBER_0                   &kp NUMBER_0  &kp DOT       &kp QUESTION
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                             &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans            &trans        &trans        &trans        &trans                                               &trans          &trans        &trans        &trans        &trans
+&bt BT_CLR        &trans        &trans        &trans        &trans                                               &trans          &trans        &trans        &trans        &bt BT_CLR
+&bt BT_CLR_ALL    &trans        &trans        &trans        &studio_unlock      &bootloader      &trans          &trans                        &trans        &trans        &bt BT_CLR_ALL
             >;
 
             sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
@@ -230,12 +230,12 @@
 
         // layer_id : 6  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        WIRELESS {
+        yobi_layer {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                         &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans        &trans        &trans        &trans        &trans                               &trans          &trans        &trans        &trans        &trans
-&trans        &trans        &trans        &trans        &trans                               &trans          &trans        &trans        &trans        &bt BT_CLR
-&trans        &trans        &trans        &trans        &trans        &trans    &bootloader  &studio_unlock                &trans        &trans        &bt BT_CLR_ALL
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none         &none  &none  &none
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
