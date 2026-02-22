@@ -122,25 +122,11 @@
             tap-ms = <20>;
         };
 
-        TD_BS_DEL: TD_BS_DEL {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_BS_DEL";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-        };
-
         TD_CR_SCR: TD_CR_SCR {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_CR_SCR";
             #binding-cells = <0>;
             bindings = <&kp JP_COLON>, <&mt RALT SEMI>;
-        };
-
-        TD_US_PIPE: TD_US_PIPE {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_US_PIPE";
-            #binding-cells = <0>;
-            bindings = <&kp JP_UNDERSCORE>, <&kp JP_PIPE>;
         };
 
         TD_HEN_MHEN: TD_HEN_MHEN {
@@ -161,7 +147,7 @@
 &kp Q         &kp W         &kp E         &kp R  &kp T                                               &kp Y        &kp U  &kp I       &kp O       &kp P
 &mt LCTRL A   &kp S         &kp D         &kp F  &kp G                                               &kp H        &kp J  &kp K       &kp L       &mt RCTRL MINUS
 &mt LSHFT Z   &kp X         &kp C         &kp V  &kp B                                               &kp N        &kp M  &kp COMMA   &kp DOT     &mt RSHFT SLASH
-&kp LEFT_WIN  &kp LEFT_ALT  &lt 1 DELETE  &none  &lt 2 SPACE        &TD_HEN_MHEN    &lt 4 BACKSPACE  &lt 5 ENTER         &TD_CR_SCR  &kp JP_YEN  &TD_US_PIPE
+&kp LEFT_WIN  &kp LEFT_ALT  &lt 1 DELETE  &none  &lt 2 SPACE        &TD_HEN_MHEN    &lt 4 BACKSPACE  &lt 5 ENTER         &TD_CR_SCR  &kp JP_YEN  &kp JP_UNDERSCORE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
