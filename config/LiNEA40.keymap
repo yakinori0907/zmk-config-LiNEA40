@@ -15,8 +15,8 @@
 #define SCROLL 5
 #define WIRELESS 6
 
-
 // OS設定を日本語キーボードのまま使用するための変換定義
+
 #define JP_DQUOTE       AT                // "
 #define JP_AMPERSAND    CARET             // &
 #define JP_QUOTE        AMPERSAND         // '
@@ -40,6 +40,7 @@
 #define JP_KANA         LANGUAGE_1        // かな
 #define JP_EISU         LANGUAGE_2        // 英数
 #define JP_HANZEN       GRAVE             // 半角/全角
+
 //mouse cursol
 
 &mmv {
@@ -82,7 +83,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,
+            //スクロール方向を逆転,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -145,10 +146,10 @@
 
         default_layer {
             bindings = <
-&kp Q      &kp W         &kp E         &kp R  &kp T                                 &kp Y        &kp U  &kp I      &kp O     &kp P
-&kp A      &kp S         &kp D         &kp F  &kp G                                 &kp H        &kp J  &kp K      &kp L     &lt 5 MINUS
-&kp Z      &kp X         &kp C         &kp V  &kp B                                 &kp N        &kp M  &kp COMMA  &kp DOT   &kp SLASH
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &lt 2 SPACE  &lt 3 TAB    &td_bs_del  &lt 4 SPACE         &kp LEFT   &kp DOWN  &kp RIGHT
+&kp Q      &kp W         &kp E         &kp R  &kp T                                                 &kp Y        &kp U  &kp I      &kp O     &kp P
+&kp A      &kp S         &kp D         &kp F  &kp G                                                 &kp H        &kp J  &kp K      &kp L     &lt 5 MINUS
+&kp Z      &kp X         &kp C         &kp V  &kp B                                                 &kp N        &kp M  &kp COMMA  &kp DOT   &kp SLASH
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &lt 2 SPACE  &lt 3 LANG_ZENKAKUHANKAKU    &td_bs_del  &lt 4 ENTER         &kp LEFT   &kp DOWN  &kp RIGHT
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -182,10 +183,10 @@
 
         CURSOR {
             bindings = <
-&trans    &kp LC(LG(LEFT_ARROW))  &kp UP_ARROW  &kp LC(LG(RIGHT_ARROW))  &trans                       &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
-&trans    &kp LEFT_ARROW          &kp DOWN      &kp RIGHT_ARROW          &trans                       &kp KP_SLASH     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
-&kp HOME  &kp PAGE_DOWN           &kp END       &kp PAGE_UP              &trans                       &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
-&trans    &trans                  &trans        &trans                   &trans  &trans    &kp ENTER  &kp NUMBER_0                   &kp DOT       &kp ENTER     &kp QUESTION
+&none      &none         &none         &none  &none                                             &kp N7        &kp NUMBER_8  &kp NUMBER_9  &kp SPACE  &kp PLUS
+&none      &none         &none         &none  &none                                             &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp EQUAL  &kp MINUS
+&none      &none         &none         &none  &none                                             &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp ASTRK
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &kp SPACE  &kp LANG_ZENKAKUHANKAKU    &td_bs_del  &kp NUMBER_0                &kp ENTER     &kp COMMA  &kp SLASH
             >;
         };
 
@@ -193,10 +194,10 @@
 
         FUNCTION {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4   &kp F5                     &trans      &trans  &kp LA(PRINTSCREEN)  &trans  &kp LC(LA(DELETE))
-&kp F6  &kp F7  &kp F8  &kp F9   &kp F10                    &trans      &trans  &kp LS(LG(S))        &trans  &kp LC(LS(ESCAPE))
-&trans  &trans  &trans  &kp F11  &kp F12                    &kp C_MUTE  &trans  &trans               &trans  &kp LC(LA(INS))
-&trans  &trans  &trans  &trans   &trans   &trans    &trans  &trans              &trans               &trans  &trans
+&kp F1            &kp F2        &kp F3        &kp F4   &kp F5                                               &trans     &trans  &kp LG(LEFT)  &kp LG(TAB)  &kp LG(RIGHT)
+&kp F6            &kp F7        &kp F8        &kp F9   &kp F10                                              &trans     &trans  &kp PAGE_UP   &none        &kp PAGE_DOWN
+&none             &none         &none         &kp F11  &kp F12                                              &none      &trans  &kp HOME      &kp UP       &kp END
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &none    &kp SPACE  &kp LANG_ZENKAKUHANKAKU    &kp BACKSPACE  &kp ENTER          &kp LEFT      &kp DOWN     &kp RIGHT
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
