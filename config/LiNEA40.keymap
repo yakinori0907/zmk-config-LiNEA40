@@ -88,7 +88,7 @@
     };
 };
 
-/ {
+ {
     combos {
         compatible = "zmk,combos";
 
@@ -139,6 +139,13 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
         };
+
+        td_alt_sht: td_alt_sht {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ALT_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT>, <&kp LEFT_ALT>;
+        };
     };
 
     keymap {
@@ -149,7 +156,7 @@
 &kp Q      &kp W         &kp E         &kp R  &kp T                                                 &kp Y        &kp U  &kp I      &kp O     &kp P
 &kp A      &kp S         &kp D         &kp F  &kp G                                                 &kp H        &kp J  &kp K      &kp L     &lt 5 MINUS
 &kp Z      &kp X         &kp C         &kp V  &kp B                                                 &kp N        &kp M  &kp COMMA  &kp DOT   &kp SLASH
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &lt 2 SPACE  &lt 3 JP_HANZEN    &td_bs_del  &lt 4 ENTER         &kp LEFT   &kp DOWN  &kp RIGHT
+&kp LCTRL  &kp LEFT_WIN  &kp td_alt_sht  &none  &lt 2 SPACE  &lt 3 JP_HANZEN    &kp BACKSPACE  &lt 4 ENTER         &kp LEFT   &kp DOWN  &kp RIGHT
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -173,7 +180,7 @@
 &kp EXCLAMATION &kp JP_DQUOTE   &kp HASH        &kp DOLLAR  &kp PERCENT                             &kp JP_AMPERSAND    &kp JP_QUOTE    &kp JP_LPAREN       &kp JP_RPAREN         &kp JP_YEN
 &none           &none           &none           &none       &none                                   &kp JP_BACKQUOTE    &kp JP_TILDE    &kp JP_LBRACKET     &kp JP_RBRACKET       &kp JP_AT
 &none           &none           &none           &none       &none                                   &none               &kp JP_PIPE     &kp JP_LBRACE       &kp JP_RBRACE         &kp JP_UNDERSCORE
-&kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT    &none       &kp SPACE   &kp JP_HANZEN   &td_bs_del  &kp ENTER                           &kp JP_COLON        &kp SEMICOLON         &kp JP_CARET
+&kp LCTRL       &kp LEFT_WIN    &kp td_alt_sht    &none       &kp SPACE   &kp JP_HANZEN   &kp DELETE  &kp ENTER                           &kp JP_COLON        &kp SEMICOLON         &kp JP_CARET
             >;
 
             sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
@@ -186,7 +193,7 @@
 &none      &none         &none         &none  &none                                             &kp N7        &kp NUMBER_8  &kp NUMBER_9  &kp SPACE  &kp JP_PLUS
 &none      &none         &none         &none  &none                                             &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp JP_EQUAL  &kp MINUS
 &none      &none         &none         &none  &none                                             &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp JP_ASTERISK
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &kp SPACE  &kp JP_HANZEN    &td_bs_del  &kp NUMBER_0                &kp ENTER     &kp COMMA  &kp SLASH
+&kp LCTRL  &kp LEFT_WIN  &kp td_alt_sht  &none  &kp SPACE  &kp JP_HANZEN    &kp DELETE  &kp NUMBER_0                &kp ENTER     &kp COMMA  &kp SLASH
             >;
         };
 
@@ -197,7 +204,7 @@
 &kp F1            &kp F2        &kp F3        &kp F4   &kp F5                                               &trans     &trans  &kp LG(LEFT)  &kp LG(TAB)  &kp LG(RIGHT)
 &kp F6            &kp F7        &kp F8        &kp F9   &kp F10                                              &trans     &trans  &kp PAGE_UP   &none        &kp PAGE_DOWN
 &none             &none         &none         &kp F11  &kp F12                                              &none      &trans  &kp HOME      &kp UP       &kp END
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &none    &kp SPACE  &kp JP_HANZEN    &kp BACKSPACE  &kp ENTER          &kp LEFT      &kp DOWN     &kp RIGHT
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp td_alt_sht  &none    &kp SPACE  &kp JP_HANZEN    &kp DELETE  &kp ENTER          &kp LEFT      &kp DOWN     &kp RIGHT
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
