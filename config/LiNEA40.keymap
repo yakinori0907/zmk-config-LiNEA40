@@ -119,6 +119,16 @@
     };
 
     behaviors {
+      mt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";            // 判定ロジックをbalancedに
+            tapping-term-ms = <280>;        // 判定時間
+            quick-tap-ms = <175>;           // 連打時はタップを優先
+            require-prior-idle-ms = <150>;  // タイピングが止まった時だけホールドを許可
+            bindings = <&kp>, <&kp>;
+        };
+
         re_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
@@ -132,20 +142,6 @@
 
             tap-ms = <20>;
         };
-
-        td_bs_del: td_bs_del {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_BS_DEL";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
-        };
-
-        td_alt_sht: td_alt_sht {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_ALT_SHIFT";
-            #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&kp LEFT_ALT>;
-        };
     };
 
     keymap {
@@ -153,10 +149,10 @@
 
         default_layer {
             bindings = <
-&kp Q      &kp W         &kp E         &kp R  &kp T                                                 &kp Y        &kp U  &kp I      &kp O     &kp P
-&kp A      &kp S         &kp D         &kp F  &kp G                                                 &kp H        &kp J  &kp K      &kp L     &lt 5 MINUS
-&kp Z      &kp X         &kp C         &kp V  &kp B                                                 &kp N        &kp M  &kp COMMA  &kp DOT   &kp SLASH
-&kp LCTRL  &kp LEFT_WIN  &td_alt_sht  &none  &lt 2 SPACE  &lt 3 JP_HANZEN    &kp BACKSPACE  &lt 4 ENTER         &kp LEFT   &kp DOWN  &kp RIGHT
+&kp Q           &kp W           &kp E           &kp R           &kp T                                                   &kp Y           &kp U           &kp I           &kp O           &kp P
+&kp A           &kp S           &kp D           &kp F           &kp G                                                   &kp H           &kp J           &kp K           &kp L           &lt 5 MINUS
+&mt LSHIFT Z    &kp X           &kp C           &kp V           &kp B                                                   &kp N           &kp M           &kp COMMA       &kp DOT         &mt RSHIFT SLASH
+&kp LCTRL       &kp LEFT_WIN    &kp LALT        &none           &lt 2 SPACE      &lt 3 JP_HANZEN    &kp BACKSPACE       &lt 4 ENTER                     &kp LEFT        &kp DOWN        &kp RIGHT
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -179,8 +175,8 @@
             bindings = <
 &kp EXCLAMATION &kp JP_DQUOTE   &kp HASH        &kp DOLLAR  &kp PERCENT                             &kp JP_AMPERSAND    &kp JP_QUOTE    &kp JP_LPAREN       &kp JP_RPAREN         &kp JP_YEN
 &none           &none           &none           &none       &none                                   &kp JP_BACKQUOTE    &kp JP_TILDE    &kp JP_LBRACKET     &kp JP_RBRACKET       &kp JP_AT
-&none           &none           &none           &none       &none                                   &none               &kp JP_PIPE     &kp JP_LBRACE       &kp JP_RBRACE         &kp JP_UNDERSCORE
-&kp LCTRL       &kp LEFT_WIN    &td_alt_sht    &none       &kp SPACE   &kp JP_HANZEN   &kp DELETE  &kp ENTER                           &kp JP_COLON        &kp SEMICOLON         &kp JP_CARET
+&kp LSHIFT           &none           &none           &none       &none                                   &none               &kp JP_PIPE     &kp JP_LBRACE       &kp JP_RBRACE         &mt RSHIFT JP_UNDERSCORE
+&kp LCTRL       &kp LEFT_WIN    &kp LALT   &none       &kp SPACE   &kp JP_HANZEN   &kp DELETE  &kp ENTER                           &kp JP_COLON        &kp SEMICOLON         &kp JP_CARET
             >;
 
             sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
@@ -192,8 +188,8 @@
             bindings = <
 &none      &none         &none         &none  &none                                             &kp N7        &kp NUMBER_8  &kp NUMBER_9  &kp SPACE  &kp JP_PLUS
 &none      &none         &none         &none  &none                                             &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp JP_EQUAL  &kp MINUS
-&none      &none         &none         &none  &none                                             &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &kp JP_ASTERISK
-&kp LCTRL  &kp LEFT_WIN  &td_alt_sht  &none  &kp SPACE  &kp JP_HANZEN    &kp DELETE  &kp NUMBER_0                &kp ENTER     &kp COMMA  &kp SLASH
+&kp LSHIFT      &none         &none         &none  &none                                             &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT    &mt RSHIFT JP_ASTERISK
+&kp LCTRL  &kp LEFT_WIN  &kp LALT &none  &kp SPACE  &kp JP_HANZEN    &kp DELETE  &kp NUMBER_0                &kp ENTER     &kp COMMA  &kp SLASH
             >;
         };
 
@@ -203,8 +199,8 @@
             bindings = <
 &kp F1            &kp F2        &kp F3        &kp F4   &kp F5                                               &trans     &trans  &kp LG(LEFT)  &kp LG(TAB)  &kp LG(RIGHT)
 &kp F6            &kp F7        &kp F8        &kp F9   &kp F10                                              &trans     &trans  &kp PAGE_UP   &none        &kp PAGE_DOWN
-&none             &none         &none         &kp F11  &kp F12                                              &none      &trans  &kp HOME      &kp UP       &kp END
-&kp LEFT_CONTROL  &kp LEFT_WIN  &td_alt_sht  &none    &kp SPACE  &kp JP_HANZEN    &kp DELETE  &kp ENTER          &kp LEFT      &kp DOWN     &kp RIGHT
+&kp LSHIFT            &none         &none         &kp F11  &kp F12                                              &none      &trans  &kp HOME      &kp UP       &mt RSHIFT END
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LALT  &none    &kp SPACE  &kp JP_HANZEN    &kp DELETE  &kp ENTER          &kp LEFT      &kp DOWN     &kp RIGHT
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -216,7 +212,7 @@
             bindings = <
 &trans    &kp LC(LG(LEFT_ARROW))  &kp UP_ARROW  &kp LC(LG(RIGHT_ARROW))  &trans                    &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
 &trans    &kp LEFT_ARROW          &kp DOWN      &kp RIGHT_ARROW          &trans                    &kp KP_SLASH     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
-&kp HOME  &kp PAGE_DOWN           &kp END       &kp PAGE_UP              &trans                    &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
+&kp HOME  &kp PAGE_DOWN           &kp END       &kp PAGE_UP              &trans                    &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp RSHIFT ENTER
 &trans    &trans                  &trans        &trans                   &trans  &trans    &trans  &kp NUMBER_0                   &kp NUMBER_0  &kp DOT       &kp QUESTION
             >;
 
